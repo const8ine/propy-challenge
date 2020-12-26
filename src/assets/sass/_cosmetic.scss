@@ -1,0 +1,83 @@
+.text-a-left {
+  text-align: left;
+}
+
+.text-a-center {
+  text-align: center;
+}
+
+.text-a-right {
+  text-align: right;
+}
+
+$sizes: (0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60);
+
+@each $size in $sizes {
+  .margin-#{$size} {
+    margin: #{$size}px !important;
+  }
+  .margin-t-#{$size} {
+    margin-top: #{$size}px !important;
+  }
+  .margin-b-#{$size} {
+    margin-bottom: #{$size}px !important;
+  }
+  .margin-l-#{$size} {
+    margin-left: #{$size}px !important;
+  }
+  .margin-r-#{$size} {
+    margin-right: #{$size}px !important;
+  }
+}
+
+@each $size in $sizes {
+  .padding-#{$size} {
+    padding: #{$size}px !important;
+  }
+  .padding-t-#{$size} {
+    padding-top: #{$size}px !important;
+  }
+  .padding-b-#{$size} {
+    padding-bottom: #{$size}px !important;
+  }
+  .padding-l-#{$size} {
+    padding-left: #{$size}px !important;
+  }
+  .padding-r-#{$size} {
+    padding-right: #{$size}px !important;
+  }
+}
+
+.width-content {
+  @include resolution_widescreen {
+    max-width: calc(100vw - ((#{$widescreen} / 12) * 3) - #{$gutter});
+  }
+
+  @include resolution_desktop {
+    max-width: calc(100vw - #{$gutter});
+  }
+
+  @include resolution_smartphone-and-tablet {
+    max-width: calc(100vw - #{$gutter});
+  }
+}
+
+.not-flex {
+  flex: none;
+}
+
+.w-space-nowrap {
+  white-space: nowrap;
+}
+
+@include resolution_desktop-and-up {
+  .only-on-mobile {
+    display: none !important;
+  }
+}
+
+@include resolution_smartphone-and-tablet {
+  .only-on-desktop {
+    display: none !important;
+  }
+}

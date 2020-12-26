@@ -1,0 +1,46 @@
+/*
+ * Container
+ */
+
+// You may use this mixin to apply .container example styles to any parent block with .col elements
+@mixin container-core($align-items: flex-start) {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: $align-items;
+  justify-content: flex-start;
+
+  &, * {
+    box-sizing: border-box;
+  }
+}
+
+.container {
+  padding: 0 #{$gutter};
+  margin-left: auto;
+  margin-right: auto;
+
+  @include container-core;
+
+  @include resolution_widescreen {
+    width: $widescreen - $gutter;
+  }
+
+  @include resolution_desktop {
+    width: $desktop - $gutter;
+  }
+
+  @include resolution_tablet {
+    width: 100%;
+    max-width: $desktop - $gutter;
+  }
+
+  @include resolution_phablet {
+    width: 100%;
+    max-width: $tablet;
+  }
+
+  @include resolution_phone {
+    width: 100%;
+    max-width: $phablet;
+  }
+}

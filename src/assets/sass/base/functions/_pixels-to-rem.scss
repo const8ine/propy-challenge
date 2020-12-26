@@ -1,0 +1,10 @@
+$base-font-size: 14;
+$max-font-size: 16;
+
+@function font-size-rem($font-size) {
+  @if $font-size <= $max-font-size {
+    @return ($font-size / $base-font-size) + rem;
+  } @else {
+    @return $font-size + px;
+  }
+}

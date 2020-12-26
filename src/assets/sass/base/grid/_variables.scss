@@ -1,0 +1,36 @@
+//
+// Variables
+//
+
+$gutter: 10px;
+$columns-quantity: 12;
+$max-scroll-width: 30px;
+
+// BREAKPOINTS
+// Commonly used breakpoints
+$defaultMap: (
+  widescreen: 1120px,
+  desktop: 960px,
+  tablet: 768px,
+  phablet: 576px,
+  smartphone: 320px
+);
+
+// You may add any set of breakpoints corresponding to these ones
+$testMap: (
+  widescreen: 1024px,
+  desktop: 1024px,
+  tablet: 900px,
+  phablet: 670px,
+  smartphone: 485px
+);
+
+// Which map is used
+$breakpointsMap: $testMap;
+
+// Breakpoints itself
+$widescreen: map-get($breakpointsMap, widescreen);
+$desktop: map-get($breakpointsMap, desktop);
+$tablet: map-get($breakpointsMap, tablet);
+$phablet: map-get($breakpointsMap, phablet);
+$smartphone: map-get($breakpointsMap, smartphone);

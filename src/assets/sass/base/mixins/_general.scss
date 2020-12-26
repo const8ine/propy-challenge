@@ -1,0 +1,25 @@
+@mixin panel($display: 'block', $padding: '10px') {
+  display: $display;
+  width: 100%;
+  background-color: $color-base-200;
+  color: $color-base-100;
+  border: 1px solid $color-base-100;
+  border-radius: $border-radius-regular;
+  padding: unquote($padding);
+  position: relative;
+}
+
+@mixin link($link, $hover, $active) {
+  &:link,
+  &:visited {
+    color: $link;
+  }
+
+  &:hover {
+    color: $hover;
+  }
+
+  &:active {
+    color: $active;
+  }
+}

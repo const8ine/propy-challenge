@@ -1,0 +1,8 @@
+@function z($layer) {
+  $z-indeces: (
+    'menu': 1000,
+    'header': 995,
+  );
+
+  @return map-get($z-indeces, $layer);
+}

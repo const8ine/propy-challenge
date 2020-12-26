@@ -1,0 +1,24 @@
+@mixin truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin truncate-multiple-lines($font-size, $font-line-height, $lines, $additional, $whole-height:"") {
+  display: block;
+  display: -webkit-box;
+  font-size: $font-size;
+  line-height: $font-line-height;
+  -webkit-line-clamp: $lines;   // fallback
+  -webkit-box-orient: vertical; // fallback
+  word-break: keep-all;
+  hyphens: auto;
+  @if $whole-height != "" {
+    height: $whole-height;
+  }
+  @else {
+    max-height: ($font-line-height * $font-size * $lines) + $additional;
+  }
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

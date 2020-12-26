@@ -1,0 +1,48 @@
+/*
+ * Flex grid utilities
+ */
+
+.container {
+  .__items-start {
+    align-items: flex-start;
+  }
+
+  .__items-center {
+    align-items: center;
+  }
+
+  .__items-end {
+    align-items: flex-end;
+  }
+
+  .__self-start {
+    align-self: flex-start;
+  }
+
+  .__self-center {
+    align-self: center;
+  }
+
+  .__self-end {
+    align-self: flex-end;
+  }
+
+  .__justify-between {
+    justify-content: space-between;
+  }
+
+  .__justify-around {
+    justify-content: space-around;
+  }
+
+  .__flex-auto {
+    width: unset;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  .__not-flex {
+    flex: none;
+  }
+}
+
