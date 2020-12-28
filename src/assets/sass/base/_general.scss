@@ -1,12 +1,13 @@
 html {
-  min-height: 460px
+  min-width: $viewport-min-w;
+  min-height: $viewport-min-h;
 }
 
 body {
   display: table;
   height: 100vh;
   width: 100%;
-  padding: 50px 0;
+  padding: #{$header-height + $padding-medium} 0;
   background-color: $color-white;
   color: $color-black;
 

@@ -1,13 +1,26 @@
 <header class="header">
   <div class="header__centering">
     <a class="header__logo"
-       [routerLink]="'/'">
+       [routerLink]="'/'"
+       title="Main page"
+    >
+      <app-icon
+        class="logo__icon"
+        [staticSrc]="logoUrl"
+        size="lg"
+      ></app-icon>
     </a>
 
-    <ul class="header__right">
+    <ul class="header__icons-list">
       <li>
-        <a [routerLink]="'/settings'">
-          Settings
+        <a [routerLink]="'/settings'"
+           title="Settings"
+        >
+          <app-icon
+            class="icons-list__icon"
+            icon="settings"
+            size="lg"
+          ></app-icon>
         </a>
       </li>
     </ul>

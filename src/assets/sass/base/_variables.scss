@@ -1,6 +1,10 @@
 // SIZES
 // Base
-$ui-base-height: 26px;
+$ui-base-unit: 20px;
+$viewport-min-w: 320px;
+$viewport-min-h: 460px;
+$viewport-max-w: 2000px;
+$header-height: $ui-base-unit * 3;
 $padding-regular: 10px;
 $padding-medium: 15px;
 $padding-large: 25px;

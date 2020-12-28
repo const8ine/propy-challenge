@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { APP_ROUTES } from './app-routing';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from "@angular/common/http";
+import {IconModule} from "./shared/icon/app-icon.module";
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
+    IconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
