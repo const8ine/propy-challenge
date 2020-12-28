@@ -8,7 +8,8 @@ import {IconModule} from "../icon/app-icon.module";
 @NgModule({
   declarations: [SoundComponent, NameComponent],
   exports: [
-    NameComponent
+    NameComponent,
+    SoundComponent
   ],
   imports: [
     CommonModule,
