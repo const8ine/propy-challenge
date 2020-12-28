@@ -8,10 +8,13 @@
   color: $color-white;
 
   &__container {
+    padding: 0 $ui-base-unit;
+  }
+
+  &__panel {
     background-color: $color-base-200;
     border-radius: $border-radius-medium;
     text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
+    padding: $ui-base-unit;
   }
 }
