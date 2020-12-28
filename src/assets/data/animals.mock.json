@@ -1,42 +1,34 @@
 [
   {
     "name": "cow",
-    "sound": "moo",
-    "image": "/assets/images/animals/cow.png"
+    "sound": "moo"
   },
   {
     "name": "goat",
-    "sound": "baa",
-    "image": "/assets/images/animals/goat.png"
+    "sound": "baa"
   },
   {
     "name": "cat",
-    "sound": "meow",
-    "image": "/assets/images/animals/cat.png"
+    "sound": "meow"
   },
   {
     "name": "goose",
-    "sound": "honk",
-    "image": "/assets/images/animals/goose.png"
+    "sound": "honk"
   },
   {
     "name": "horse",
-    "sound": "neigh",
-    "image": "/assets/images/animals/horse.png"
+    "sound": "neigh"
   },
   {
     "name": "hen",
-    "sound": "cluck",
-    "image": "/assets/images/animals/hen.png"
+    "sound": "cluck"
   },
   {
     "name": "sheep",
-    "sound": "bleat",
-    "image": "/assets/images/animals/sheep.png"
+    "sound": "bleat"
   },
   {
     "name": "robot",
-    "sound": "beep bop deploy bop",
-    "image": "/assets/images/animals/robot.png"
+    "sound": "beep bop deploy bop"
   }
 ]

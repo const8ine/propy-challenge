@@ -1,0 +1,17 @@
+@import "../../../../../assets/sass/dependecies";
+
+:host {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 40px;
+  margin: 0 5px 5px 0;
+  padding: 0 8px;
+  color: $color-white;
+  line-height: $ui-base-height;
+  border-radius: $border-radius-regular;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  background-color: $color-base-300;
+}

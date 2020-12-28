@@ -1,0 +1,17 @@
+@import "src/assets/sass/dependecies";
+
+.page {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  color: $color-white;
+
+  &__container {
+    background-color: $color-base-200;
+    border-radius: $border-radius-medium;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+}

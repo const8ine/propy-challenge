@@ -1,16 +1,20 @@
-<article>
-<ul class="list">
-  <li *ngFor="let animal of animalsList | slice: 0: 3"
-      [ngTemplateOutlet]="songLyrics"
-      [ngTemplateOutletContext]="{a: animal}"
-  ></li>
-</ul>
-</article>
+<div class="page">
+  <div class="container page__container">
+    <article class="col-12">
+    <ul class="list">
+      <li *ngFor="let animal of animalsList | slice: 0: 3"
+          [ngTemplateOutlet]="songLyrics"
+          [ngTemplateOutletContext]="{ a: animal }"
+      ></li>
+    </ul>
+    </article>
+  </div>
+</div>
 
 <ng-template #songLyrics let-a="a">
   <p>Old MACDONALD had a farm</p>
   <p>E-I-E-I-O</p>
-  <p>And on his farm he had a {{ a.name }}</p>
+  <p>And on his farm he had a <app-name [name]="a.name"></app-name></p>
   <p>E-I-E-I-O</p>
   <p>With a {{ a.sound }} {{ a.sound }} here</p>
   <p>And a {{ a.sound }} {{ a.sound }} there</p>

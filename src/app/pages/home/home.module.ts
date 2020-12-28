@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {HomeComponent} from "./home.component";
 import {RouterModule} from "@angular/router";
 import {HOME_ROUTES} from './home-routing';
+import {AnimalModule} from "../../shared/animal/animal.module";
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import {HOME_ROUTES} from './home-routing';
   imports: [
     CommonModule,
     RouterModule.forChild(HOME_ROUTES),
+    AnimalModule,
   ]
 })
 export class HomeModule { }
