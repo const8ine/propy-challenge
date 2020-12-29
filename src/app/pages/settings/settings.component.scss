@@ -1,0 +1,51 @@
+@import "../styles";
+$primeng-message-height: 40px;
+$select-option-height: 46px;
+
+.settings {
+  @include page;
+
+  &__container {
+    @include page-container;
+  }
+
+  &__title {
+    @include page-title;
+  }
+
+  &__messages {
+    min-height: $primeng-message-height;
+    margin: $padding-regular 0;
+
+    &:empty {
+      background-color: $color-gray-100;
+      border-radius: $border-radius-regular;
+    }
+  }
+}
+
+.animals-select {
+  &__list  {
+    max-height: $select-option-height * 8; // height = 8 items
+
+    & > li.p-listbox-item {
+      align-items: flex-start;
+    }
+  }
+
+  &__option {
+    text-align: left;
+
+    .option__name,
+    .option__sound {
+      margin: 2px;
+    }
+  }
+}
+
+// Class is being added dynamically
+:host ::ng-deep .settings__message {
+  justify-content: flex-start;
+  width: 100%;
+}
+

@@ -1,1 +1,53 @@
-Settings page
+<div class="settings">
+  <div class="container settings__container">
+    <h1 class="col-12 settings__title">
+      Settings
+    </h1>
+    <form
+      class="col-12 settings__panel"
+      [formGroup]="animalsSelectForm" (ngSubmit)="onSubmit(animalsSelectForm.value)"
+    >
+      <div class="col-12 settings__messages">
+        <p-message
+          *ngIf="animalsSelectForm.invalid; else instructionsMessage"
+          severity="error" text="You can choose only three different animals"
+          styleClass="settings__message"
+        ></p-message>
+        <ng-template #instructionsMessage>
+          <p-message
+            severity="info" text="Choose a set of three different animals"
+            styleClass="settings__message"
+          ></p-message>
+        </ng-template>
+      </div>
+      <div class="col-12">
+        <p-listbox
+          formControlName="animals-select"
+          class="animals-select"
+          [showToggleAll]="false"
+          [options]="animalsList"
+
+          [metaKeySelection]="false"
+          [checkbox]="true"
+          [multiple]="true"
+          [listStyleClass]="'animals-select__list'"
+          optionLabel="name"
+          (onChange)="setValues()"
+        >
+          <ng-template let-animal pTemplate="item">
+            <div class="animals-select__option">
+              <app-name
+                class="option__name"
+                [name]="animal.name"
+              ></app-name>
+              <app-sound
+                class="option__sound"
+              >{{animal.sound}}
+              </app-sound>
+            </div>
+          </ng-template>
+        </p-listbox>
+      </div>
+    </form>
+  </div>
+</div>

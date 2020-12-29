@@ -1,5 +1,5 @@
 article,
-section {
+form {
   width: 100%;
   @include resolution_desktop-and-up {
     font-size: calc(0.2vw + 13px);
@@ -103,12 +103,7 @@ section {
 }
 
 article + article,
-article + section,
-section + section,
-section + article,
-h1 + section,
 h1 + article,
-h2 + section,
 h2 + article {
   margin-top: 30px;
 }

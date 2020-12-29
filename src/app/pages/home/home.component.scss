@@ -1,20 +1,14 @@
-@import "src/assets/sass/dependecies";
+@import "../styles";
 
-.page {
-  display: flex;
+.home {
+  @include page;
   align-items: center;
-  position: relative;
-  height: 100%;
-  color: $color-white;
 
   &__container {
-    padding: 0 $ui-base-unit;
+    @include page-container;
   }
 
   &__panel {
-    background-color: $color-base-200;
-    border-radius: $border-radius-medium;
-    text-align: center;
-    padding: $ui-base-unit;
+    @include page-panel;
   }
 }

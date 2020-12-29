@@ -17,6 +17,7 @@ import {MockService} from "../../core/services/mock.service";
 
 export class HomeComponent implements OnInit, OnDestroy {
   public animalsList: AnimalInterface[];
+  public animalsSet: AnimalInterface[];
   public mockResponseError: boolean;
   @Output() dataSourceUpdate: EventEmitter<AnimalInterface[]> = new EventEmitter<AnimalInterface[]>();
   private ngUnsubscribe = new Subject();
