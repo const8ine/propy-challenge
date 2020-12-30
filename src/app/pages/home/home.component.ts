@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  public httpGetAnimalsList(): void {
+  private httpGetAnimalsList(): void {
     this.mockService.getMockAnimalsList().subscribe((animals) => {
       this.animalsList = animals;
       this.cdRef.markForCheck();
