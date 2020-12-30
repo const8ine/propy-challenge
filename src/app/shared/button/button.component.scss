@@ -10,7 +10,7 @@
   pointer-events: all;
   display: block;
   font-size: $font-size-big;
-  border: none;
+  border: 2px solid transparent;
   border-radius: $border-radius-regular;
   box-sizing: border-box;
   cursor: pointer;
@@ -26,6 +26,10 @@
     &:hover,
     &:focus {
       background-color: $color-base-200;
+    }
+
+    &:focus {
+      border-color: $color-accent-100;
     }
 
     &:active {

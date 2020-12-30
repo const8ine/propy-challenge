@@ -2,7 +2,7 @@
   <div class="container home__container">
     <article class="col-12 home__panel">
     <ul class="list">
-      <li *ngFor="let animal of animalsList | slice: 0: 3"
+      <li *ngFor="let animal of animalsSet | slice: 0: 3"
           [ngTemplateOutlet]="songLyrics"
           [ngTemplateOutletContext]="{ a: animal }"
       ></li>

@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import {Subject} from 'rxjs';
 import {AnimalInterface} from "../../core/models/animal.interface";
-import {MockService} from "../../core/services/mock.service";
+import {SettingsService} from "../../core/services/settings.service";
 
 @Component({
   selector: 'app-home',
@@ -16,20 +16,19 @@ import {MockService} from "../../core/services/mock.service";
 })
 
 export class HomeComponent implements OnInit, OnDestroy {
-  public animalsList: AnimalInterface[];
   public animalsSet: AnimalInterface[];
-  public mockResponseError: boolean;
+  public error: boolean;
   @Output() dataSourceUpdate: EventEmitter<AnimalInterface[]> = new EventEmitter<AnimalInterface[]>();
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private readonly mockService: MockService,
+    private settingsService: SettingsService,
     private readonly cdRef: ChangeDetectorRef
   ) {
   }
 
   ngOnInit(): void {
-    this.httpGetAnimalsList();
+    this.getAnimalsList();
   }
 
   ngOnDestroy(): void {
@@ -37,10 +36,12 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  private httpGetAnimalsList(): void {
-    this.mockService.getMockAnimalsList().subscribe((animals) => {
-      this.animalsList = animals;
+  private getAnimalsList(): void {
+    this.settingsService.getSettingsList().subscribe((animals) => {
+      console.log(animals);
+      this.animalsSet = animals;
+      console.log(this.animalsSet);
       this.cdRef.markForCheck();
-    }, error => this.mockResponseError = true);
+    }, error => this.error = true);
   }
 }

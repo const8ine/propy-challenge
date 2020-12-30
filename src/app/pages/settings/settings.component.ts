@@ -20,11 +20,7 @@ import {SettingsService} from "../../core/services/settings.service";
 })
 export class SettingsComponent implements OnInit, OnDestroy {
   public animalsList: AnimalInterface[];
-  public animalsSet = [
-    {name: "goat", sound: "baa"},
-    {name: "cat", sound: "meow"},
-    {name: "goose", sound: "honk"}
-  ];
+  public animalsSet: AnimalInterface[];
   public mockResponseError: boolean;
   public animalsSelectForm: FormGroup;
   public isFormSaved: boolean;
@@ -37,6 +33,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
     private settingsService: SettingsService,
     private formBuilder: FormBuilder,
   ) {
+    this.httpGetAnimalsList();
+    this.getAnimalsList();
     this.animalsSelectForm = this.formBuilder.group({
       'animals-select': new FormControl(
         this.animalsSet,
@@ -50,7 +48,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.httpGetAnimalsList();
   }
 
   ngOnDestroy(): void {
@@ -65,17 +62,22 @@ export class SettingsComponent implements OnInit, OnDestroy {
     }, error => this.mockResponseError = true);
   }
 
+  private getAnimalsList(): void {
+    this.settingsService.getSettingsList().subscribe((animals) => {
+      this.animalsSet = animals;
+      this.cdRef.markForCheck();
+    });
+  }
+
   // Put values into values list. It may be longer than 3 items.
   public setValues(): void {
     this.animalsSet = this.animalsSelectForm.value;
     this.isFormSaved = false;
-    console.log('setValue ', this.isFormSaved);
   }
 
   // Submit values only if there are no more and no less than 3 items.
   public onSubmit(): void {
-    this.settingsService.setSettingsList(this.animalsSet);
+    this.settingsService.setSettingsList(this.animalsSet['animals-select']);
     this.isFormSaved = true;
-    console.log('onSubmit ', this.isFormSaved);
   }
 }
