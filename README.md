@@ -2,10 +2,10 @@
 ## Old MacDonald Had a Farm 🐄 🐐 🐈 🤖
 
 ### Checklist
-- [ ] Task 1
+- [-] Task 1
   - [ ] Unit testing
-- [ ] Task 2
-  - [ ] Routing
+- [-] Task 2
+  - [-] Routing
 - [ ] Task 3
 - [ ] Task 4
 
