@@ -22,6 +22,19 @@ $select-option-height: 46px;
       border-radius: $border-radius-regular;
     }
   }
+
+  &__buttons {
+    width: 100%;
+    margin-top: $padding-regular;
+
+    @include resolution_tablet-and-up {
+      text-align: left;
+    }
+
+    @include resolution_smartphone {
+      text-align: center;
+    }
+  }
 }
 
 .animals-select {

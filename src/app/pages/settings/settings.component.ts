@@ -1,13 +1,14 @@
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component,
-  OnDestroy, OnInit,
+  Component, EventEmitter,
+  OnDestroy, OnInit, Output,
 } from '@angular/core';
 import {Subject} from 'rxjs';
 import {AnimalInterface} from "../../core/models/animal.interface";
 import {MockService} from "../../core/services/mock.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {SettingsService} from "../../core/services/settings.service";
 
 // Imagine we have a component with PrimeNG legacy ;)
 
@@ -26,11 +27,14 @@ export class SettingsComponent implements OnInit, OnDestroy {
   ];
   public mockResponseError: boolean;
   public animalsSelectForm: FormGroup;
+  public isFormSaved: boolean;
+  @Output() reloadButton: EventEmitter<any> = new EventEmitter<any>();
   private ngUnsubscribe = new Subject();
 
   constructor(
     private readonly mockService: MockService,
     private readonly cdRef: ChangeDetectorRef,
+    private settingsService: SettingsService,
     private formBuilder: FormBuilder,
   ) {
     this.animalsSelectForm = this.formBuilder.group({
@@ -54,18 +58,24 @@ export class SettingsComponent implements OnInit, OnDestroy {
     this.ngUnsubscribe.complete();
   }
 
-  public httpGetAnimalsList(): void {
+  private httpGetAnimalsList(): void {
     this.mockService.getMockAnimalsList().subscribe((animals) => {
       this.animalsList = animals;
       this.cdRef.markForCheck();
     }, error => this.mockResponseError = true);
   }
 
-  public onSubmit(animalsData): void {
-    console.warn('Data has been submitted: ', animalsData);
-  }
-
+  // Put values into values list. It may be longer than 3 items.
   public setValues(): void {
     this.animalsSet = this.animalsSelectForm.value;
+    this.isFormSaved = false;
+    console.log('setValue ', this.isFormSaved);
+  }
+
+  // Submit values only if there are no more and no less than 3 items.
+  public onSubmit(): void {
+    this.settingsService.setSettingsList(this.animalsSet);
+    this.isFormSaved = true;
+    console.log('onSubmit ', this.isFormSaved);
   }
 }

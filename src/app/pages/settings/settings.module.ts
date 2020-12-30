@@ -7,6 +7,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ListboxModule} from 'primeng/listbox';
 import {AnimalModule} from "../../shared/animal/animal.module";
 import {MessageModule} from "primeng/message";
+import {ButtonModule} from "../../shared/button/button.module";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {MessageModule} from "primeng/message";
     FormsModule,
     AnimalModule,
     MessageModule,
+    ButtonModule,
   ]
 })
 export class SettingsModule { }

@@ -5,7 +5,7 @@
     </h1>
     <form
       class="col-12 settings__panel"
-      [formGroup]="animalsSelectForm" (ngSubmit)="onSubmit(animalsSelectForm.value)"
+      [formGroup]="animalsSelectForm" (ngSubmit)="onSubmit()"
     >
       <div class="col-12 settings__messages">
         <p-message
@@ -47,6 +47,14 @@
             </div>
           </ng-template>
         </p-listbox>
+
+        <div class="settings__buttons">
+          <app-button
+            [isDisabled]="animalsSelectForm.invalid"
+            nativeType="submit"
+            [text]="isFormSaved ? 'Saved' : 'Save'"
+          ></app-button>
+        </div>
       </div>
     </form>
   </div>
