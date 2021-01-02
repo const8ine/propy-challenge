@@ -22,4 +22,9 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should display the "Settings" button', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('app-button').classList).toContain('test-settingsButton');
+  });
 });
