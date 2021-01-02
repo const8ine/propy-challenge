@@ -1,4 +1,7 @@
 @import "src/assets/sass/dependecies";
+@import "styles/base";
+@import "styles/regular-button";
+@import "styles/icon-button";
 
 :host {
   display: inline-block;
@@ -7,39 +10,14 @@
 }
 
 .button {
-  pointer-events: all;
-  display: block;
-  font-size: $font-size-big;
-  border: 2px solid transparent;
-  border-radius: $border-radius-regular;
-  box-sizing: border-box;
-  cursor: pointer;
-  user-select: none;
-  height: $ui-base-unit * 2.4;
-  min-width: 160px;
-  padding: 0 $padding-medium;
-  background-color: $color-base-100;
-  color: $color-white;
-  transition: background-color .15s ease-in;
+  @include button-base-styles;
 
-  &:not([disabled]) {
-    &:hover,
-    &:focus {
-      background-color: $color-base-200;
-    }
-
-    &:focus {
-      border-color: $color-accent-100;
-    }
-
-    &:active {
-      background-color: $color-base-300;
-    }
+  &--regular {
+    @include regular-button;
   }
 
-  &[disabled] {
-    opacity: .5;
-    cursor: default;
-    pointer-events: none;
+  &--icon {
+    @include icon-button;
   }
 }
+

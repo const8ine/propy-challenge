@@ -13,15 +13,17 @@
 
     <ul class="header__icons-list">
       <li>
-        <a [routerLink]="'/settings'"
-           title="Settings"
+        <app-button
+          class="icons-list__icon"
+          buttonType="icon"
+          [routerLink]="'/settings'"
+          title="Settings"
         >
           <app-icon
-            class="icons-list__icon"
             icon="settings"
             size="lg"
           ></app-icon>
-        </a>
+        </app-button>
       </li>
     </ul>
   </div>

@@ -51,8 +51,9 @@
         <div class="settings__buttons">
           <app-button
             [isDisabled]="animalsSelectForm.invalid"
+            buttonType="regular"
             nativeType="submit"
-            [text]="isFormSaved ? 'Saved' : 'Save'"
+            [text]="isFormSaved ? 'Saved!' : 'Save'"
           ></app-button>
         </div>
       </div>

@@ -1,0 +1,48 @@
+@mixin icon-button {
+  width: $ui-base-unit * 2.4;
+  border: 0;
+
+  &::before {
+    content: ' ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    background-color: $color-base-300;
+    transform: translate(-50%, -50%);
+    transition: opacity, height, width, .15s linear;
+    border-radius: 50%;
+  }
+
+  .button__icon-container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:not([disabled]) {
+    &:hover,
+    &:focus {
+      &::before {
+        opacity: .25;
+      }
+    }
+
+    &:focus {
+      &::before {
+        background-color: $color-accent-100;
+      }
+    }
+
+    &:active {
+      &::before {
+        height: 80%;
+        width: 80%;
+        opacity: .5;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+@mixin regular-button {
+  height: $ui-base-unit * 2.4;
+  min-width: 160px;
+  padding: 0 $padding-medium;
+  background-color: $color-base-100;
+  color: $color-white;
+  border: 2px solid transparent;
+  border-radius: $border-radius-regular;
+  transition: background-color .15s ease-in;
+
+  &:not([disabled]) {
+    &:hover,
+    &:focus {
+      background-color: $color-base-200;
+    }
+
+    &:focus {
+      border-color: $color-accent-100;
+    }
+
+    &:active {
+      background-color: $color-base-300;
+    }
+  }
+}

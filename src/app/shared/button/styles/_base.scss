@@ -1,0 +1,17 @@
+@mixin button-base-styles {
+  position: relative;
+  appearance: none;
+  display: block;
+  height: $ui-base-unit * 2.4;
+  box-sizing: border-box;
+  font-size: $font-size-big;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: all;
+
+  &[disabled] {
+    opacity: .5;
+    cursor: default;
+    pointer-events: none;
+  }
+}

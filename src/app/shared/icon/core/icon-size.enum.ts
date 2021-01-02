@@ -1,4 +1,4 @@
-export enum ICON_SIZE {
+export enum IconSizeEnum {
   custom = 'custom', // custom
   extraSmall = 'xs', // 16
   small = 'sm',      // 20
@@ -7,7 +7,7 @@ export enum ICON_SIZE {
   large = 'lg'       // 32
 }
 
-export type ICON_SIZE_ENUM_TO_TYPE = 'custom'
+export type IconSizeEnumType = 'custom'
     | 'xs'
     | 'sm'
     | 'rg'
