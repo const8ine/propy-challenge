@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {AnimalInterface} from "../models/animal.interface";
+import {AnimalInterface} from "../../models/animal.interface";
 
 @Injectable({
   providedIn: 'root'
