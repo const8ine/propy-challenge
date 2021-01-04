@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NameComponent } from './name.component';
 
-describe('NameComponent', () => {
+export const NameComponentTest = () => {
   let component: NameComponent;
   let fixture: ComponentFixture<NameComponent>;
 
@@ -19,7 +18,7 @@ describe('NameComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create a component', () => {
     expect(component).toBeTruthy();
   });
-});
+};

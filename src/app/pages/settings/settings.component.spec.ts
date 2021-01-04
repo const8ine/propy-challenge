@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SoundComponent } from './sound.component';
 
-export const SoundComponentTest = () => {
-  let component: SoundComponent;
-  let fixture: ComponentFixture<SoundComponent>;
+import { SettingsComponent } from './settings.component';
+
+describe('SettingsComponent', () => {
+  let component: SettingsComponent;
+  let fixture: ComponentFixture<SettingsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SoundComponent ]
+      declarations: [ SettingsComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SoundComponent);
+    fixture = TestBed.createComponent(SettingsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,4 +22,4 @@ export const SoundComponentTest = () => {
   it('should create a component', () => {
     expect(component).toBeTruthy();
   });
-};
+});
