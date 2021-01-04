@@ -6,10 +6,10 @@ import {
 } from '@angular/core';
 import {Subject} from 'rxjs';
 import {AnimalInterface} from "../../core/models/animal.interface";
-import {SettingsService} from "../../core/services/settings.service";
+import {SettingsService} from "../../core/services/settings-service/settings.service";
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home-page',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
