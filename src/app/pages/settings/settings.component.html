@@ -50,7 +50,7 @@
 
         <div class="settings__buttons">
           <app-button
-            [isDisabled]="animalsSelectForm.invalid"
+            [isDisabled]="animalsSelectForm.invalid || isFormSaved || !animalsSet['animals-select']"
             buttonType="regular"
             nativeType="submit"
             [text]="isFormSaved ? 'Saved!' : 'Save'"

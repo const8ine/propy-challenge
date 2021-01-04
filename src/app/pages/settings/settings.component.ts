@@ -6,14 +6,14 @@ import {
 } from '@angular/core';
 import {Subject} from 'rxjs';
 import {AnimalInterface} from "../../core/models/animal.interface";
-import {MockService} from "../../core/services/mock.service";
+import {MockService} from "../../core/services/mock-service/mock.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {SettingsService} from "../../core/services/settings.service";
+import {SettingsService} from "../../core/services/settings-service/settings.service";
 
 // Imagine we have a component with PrimeNG legacy ;)
 
 @Component({
-  selector: 'app-settings',
+  selector: 'app-settings-page',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -33,21 +33,21 @@ export class SettingsComponent implements OnInit, OnDestroy {
     private settingsService: SettingsService,
     private formBuilder: FormBuilder,
   ) {
+  }
+
+  ngOnInit(): void {
     this.httpGetAnimalsList();
     this.getAnimalsList();
     this.animalsSelectForm = this.formBuilder.group({
       'animals-select': new FormControl(
         this.animalsSet,
         [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(3)
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(3)
         ]
       ),
     });
-  }
-
-  ngOnInit(): void {
   }
 
   ngOnDestroy(): void {
@@ -76,8 +76,13 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   // Submit values only if there are no more and no less than 3 items.
+  // the values are inside an object, that has the same name than form control.
+  // Here it called 'animals-select'. If user selected any value, it will be
+  // created. Otherwise it will stay undefined.
   public onSubmit(): void {
-    this.settingsService.setSettingsList(this.animalsSet['animals-select']);
-    this.isFormSaved = true;
+    if (this.animalsSet['animals-select']) {
+      this.settingsService.setSettingsList(this.animalsSet['animals-select']);
+      this.isFormSaved = true;
+    }
   }
 }
