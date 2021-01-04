@@ -62,6 +62,30 @@ a {
   color: inherit;
 }
 
+a.link {
+  text-decoration: underline;
+
+  &:link,
+  &:visited {
+    color: $color-blue-100;
+  }
+  &:hover,
+  &:active {
+    color: $color-blue-200;
+  }
+
+  &--inverse {
+    &:link,
+    &:visited {
+      color: $color-white;
+    }
+    &:hover,
+    &:active {
+      color: $color-gray-100;
+    }
+  }
+}
+
 button {
   border: 0;
   outline: 0;

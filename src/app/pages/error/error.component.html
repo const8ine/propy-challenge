@@ -1,0 +1,25 @@
+<div class="error">
+  <div class="container error__container">
+    <div class="col-12 error__panel">
+      <div class="error__icon">
+        <app-icon
+          [staticSrc]="imageUrl"
+          size="custom"
+          customWidth="170px"
+          customHeight="auto"
+        ></app-icon>
+      </div>
+      <h1 class="error__caption">Beep bop 404</h1>
+      <div class="error__description">
+        <p>
+          The page has been moved or doesn't exist.
+        </p>
+        <p>
+          <a class="link link--inverse"
+             routerLink="/"
+          >Return to Main page</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

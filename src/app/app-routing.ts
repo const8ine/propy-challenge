@@ -9,12 +9,12 @@ export const APP_ROUTES: Routes = [
     path: 'settings',
     loadChildren: () => import('./pages/settings/settings.module').then(m => m.SettingsModule)
   },
-  //{
-  //   path: '404',
-  //   loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorModule)
-  // },
-  // {
-  //   path: '**', redirectTo: '/404'
-  // }
+  {
+    path: '404',
+    loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorModule)
+  },
+  {
+    path: '**', redirectTo: '/404'
+  }
 ];
 
