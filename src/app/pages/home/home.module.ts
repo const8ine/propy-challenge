@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {HomeComponent} from "./home.component";
 import {RouterModule} from "@angular/router";
 import {HOME_ROUTES} from './home-routing';
-import {AnimalModule} from "../../shared/animal/animal.module";
+import {AnimalModule} from "../../shared/ui-modules/animal/animal.module";
 
 @NgModule({
   declarations: [

@@ -1,14 +1,23 @@
-@import "src/assets/sass/dependecies";
+@import "../../../../../../assets/sass/dependecies";
 
 :host {
   display: inline-block;
   vertical-align: middle;
+}
+
+.name {
+  display: block;
   min-width: 40px;
   padding: 2px $padding-regular;
   color: $color-white;
   border-radius: $border-radius-regular;
   text-align: center;
   white-space: nowrap;
-  background-color: $color-base-100;
-}
+  cursor: pointer;
+  background-color: $color-base-300;
 
+  &__icon,
+  &__name {
+    vertical-align: middle;
+  }
+}

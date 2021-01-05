@@ -5,9 +5,9 @@ import {RouterModule} from "@angular/router";
 import {SETTINGS_ROUTES} from "./settings-routing";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ListboxModule} from 'primeng/listbox';
-import {AnimalModule} from "../../shared/animal/animal.module";
+import {AnimalModule} from "../../shared/ui-modules/animal/animal.module";
 import {MessageModule} from "primeng/message";
-import {ButtonModule} from "../../shared/button/button.module";
+import {ButtonModule} from "../../shared/ui-modules/button/button.module";
 
 @NgModule({
   declarations: [

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ErrorComponent} from "./error.component";
 import {RouterModule} from "@angular/router";
 import {ERROR_ROUTES} from "./error-routing";
-import {IconModule} from "../../shared/icon/app-icon.module";
+import {IconModule} from "../../shared/ui-modules/icon/app-icon.module";
 
 @NgModule({
   declarations: [
