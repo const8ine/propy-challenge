@@ -1,5 +1,6 @@
 @mixin regular-button {
   height: $ui-base-unit * 2.4;
+  width: 100%;
   min-width: 160px;
   padding: 0 $padding-medium;
   background-color: $color-base-100;

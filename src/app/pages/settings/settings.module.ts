@@ -4,10 +4,17 @@ import {SettingsComponent} from "./settings.component";
 import {RouterModule} from "@angular/router";
 import {SETTINGS_ROUTES} from "./settings-routing";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {ListboxModule} from 'primeng/listbox';
 import {AnimalModule} from "../../shared/ui-modules/animal/animal.module";
-import {MessageModule} from "primeng/message";
 import {ButtonModule} from "../../shared/ui-modules/button/button.module";
+import {ListboxModule} from 'primeng/listbox';
+import {MessageModule} from "primeng/message";
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+
+const PRIMENG_MODULES = [
+  ListboxModule,
+  MessageModule,
+  ProgressSpinnerModule,
+];
 
 @NgModule({
   declarations: [
@@ -17,11 +24,10 @@ import {ButtonModule} from "../../shared/ui-modules/button/button.module";
     CommonModule,
     RouterModule.forChild(SETTINGS_ROUTES),
     ReactiveFormsModule,
-    ListboxModule,
     FormsModule,
     AnimalModule,
-    MessageModule,
     ButtonModule,
+    ...PRIMENG_MODULES,
   ]
 })
 export class SettingsModule { }

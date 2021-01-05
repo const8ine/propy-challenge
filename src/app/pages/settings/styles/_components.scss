@@ -1,0 +1,74 @@
+// PrimeNG components styling
+
+// - Listbox
+.animals-select {
+  &__list  {
+    max-height: $select-option-height * 8; // height = 8 items
+    & > li.p-listbox-item {
+      align-items: flex-start;
+    }
+  }
+
+  &__option {
+    text-align: left;
+
+    .option__name,
+    .option__sound {
+      margin: 2px;
+    }
+  }
+}
+
+// - Message
+:host ::ng-deep .settings__message {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+// - Spinner
+:host ::ng-deep .settings__spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+
+  .p-progress-spinner-circle {
+    animation:
+      custom-progress-spinner-dash 1.5s ease-in-out infinite,
+      custom-progress-spinner-color 6s ease-in-out infinite;
+  }
+}
+
+@keyframes custom-progress-spinner-color {
+  100%,
+  0% {
+    stroke: $color-base-100;
+  }
+  40% {
+    stroke: $color-base-200;
+  }
+  66% {
+    stroke: $color-base-300;
+  }
+  80%,
+  90% {
+    stroke: $color-accent-100;
+  }
+}
+
+@keyframes custom-progress-spinner-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -124px;
+  }
+}
+

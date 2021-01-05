@@ -7,8 +7,9 @@ import {
 import {Subject} from 'rxjs';
 import {AnimalInterface} from "../../core/models/animal.interface";
 import {MockService} from "../../core/services/mock-service/mock.service";
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FirebaseService} from "../../core/services/firebase-service/firebase.service";
 import {SettingsService} from "../../core/services/settings-service/settings.service";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
 // Imagine we have a component with PrimeNG legacy ;)
 
@@ -19,9 +20,9 @@ import {SettingsService} from "../../core/services/settings-service/settings.ser
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettingsComponent implements OnInit, OnDestroy {
-  public animalsList: AnimalInterface[];
+  public animalsList: AnimalInterface[] = [];
   public animalsSet: AnimalInterface[];
-  public mockResponseError: boolean;
+  public isNoItemsError: boolean;
   public animalsSelectForm: FormGroup;
   public isFormSaved: boolean;
   @Output() reloadButton: EventEmitter<any> = new EventEmitter<any>();
@@ -29,6 +30,7 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   constructor(
     private readonly mockService: MockService,
+    private firebaseService: FirebaseService,
     private readonly cdRef: ChangeDetectorRef,
     private settingsService: SettingsService,
     private formBuilder: FormBuilder,
@@ -36,8 +38,44 @@ export class SettingsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // this.httpGetMockAnimalsList();
     this.httpGetAnimalsList();
-    this.getAnimalsList();
+    this.getAnimalsSettingsList();
+  }
+
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
+  private httpGetMockAnimalsList(): void {
+    this.mockService.getMockAnimalsList().subscribe((animals) => {
+      this.animalsList = animals;
+      console.log('Settings mock: ', this.animalsList);
+      this.initForm();
+      this.cdRef.markForCheck();
+    }, error => this.isNoItemsError = true);
+  }
+
+  private httpGetAnimalsList(): void {
+    this.firebaseService.getAnimalsList().subscribe((animals) => {
+      animals.docs.forEach((doc) => {
+        this.animalsList.push(doc.data());
+      });
+      console.log('Settings Firebase response: ', this.animalsList);
+      this.initForm();
+      this.cdRef.markForCheck();
+    }, error => this.isNoItemsError = true);
+  }
+
+  private getAnimalsSettingsList(): void {
+    this.settingsService.getSettingsList().subscribe((animals) => {
+      this.animalsSet = animals;
+      this.cdRef.markForCheck();
+    });
+  }
+
+  private initForm(): void {
     this.animalsSelectForm = this.formBuilder.group({
       'animals-select': new FormControl(
         this.animalsSet,
@@ -47,25 +85,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
           Validators.maxLength(3)
         ]
       ),
-    });
-  }
-
-  ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
-  }
-
-  private httpGetAnimalsList(): void {
-    this.mockService.getMockAnimalsList().subscribe((animals) => {
-      this.animalsList = animals;
-      this.cdRef.markForCheck();
-    }, error => this.mockResponseError = true);
-  }
-
-  private getAnimalsList(): void {
-    this.settingsService.getSettingsList().subscribe((animals) => {
-      this.animalsSet = animals;
-      this.cdRef.markForCheck();
     });
   }
 

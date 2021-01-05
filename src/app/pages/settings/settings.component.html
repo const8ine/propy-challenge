@@ -3,7 +3,7 @@
     <h1 class="col-12 settings__title">
       Settings
     </h1>
-    <form
+    <form *ngIf="animalsList.length !== 0; else settingsLoader"
       class="col-12 settings__panel"
       [formGroup]="animalsSelectForm" (ngSubmit)="onSubmit()"
     >
@@ -50,6 +50,7 @@
 
         <div class="settings__buttons">
           <app-button
+            class="buttons__submit"
             [isDisabled]="animalsSelectForm.invalid || isFormSaved || !animalsSet['animals-select']"
             buttonType="regular"
             nativeType="submit"
@@ -60,3 +61,13 @@
     </form>
   </div>
 </div>
+
+<ng-template #settingsLoader>
+  <div class="settings__skeleton">
+    <p-progressSpinner
+      [style]="{width: '50px', height: '50px'}"
+      strokeWidth="4"
+      styleClass="settings__spinner"
+    ></p-progressSpinner>
+  </div>
+</ng-template>
