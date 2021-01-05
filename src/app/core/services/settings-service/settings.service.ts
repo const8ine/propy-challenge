@@ -20,6 +20,5 @@ export class SettingsService {
 
   public setSettingsList(data: AnimalInterface[]): void {
     this.settingsList = data;
-    console.log('SettingsService.setSettingsList ', this.settingsList);
   }
 }
