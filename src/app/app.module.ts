@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { RouterModule } from "@angular/router";
 import { APP_ROUTES } from './app-routing';
 import {HttpClientModule} from "@angular/common/http";
+import {FirebaseModule} from "./shared/firebase/firebase.module";
 import {HeaderModule} from "./header/header.module";
 
 @NgModule({
@@ -12,8 +13,9 @@ import {HeaderModule} from "./header/header.module";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     RouterModule.forRoot(APP_ROUTES),
+    HttpClientModule,
+    FirebaseModule,
     HeaderModule,
   ],
   providers: [],

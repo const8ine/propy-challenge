@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {environment} from "../../../../environments/environment";
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
@@ -10,6 +11,6 @@ export class MockService {
   }
 
   public getMockAnimalsList(): Observable<any> {
-    return this.http.get("assets/data/animals.mock.json");
+    return this.http.get(environment.mockUrl);
   }
 }
