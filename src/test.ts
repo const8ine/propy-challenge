@@ -6,6 +6,7 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
+import {animalModuleTest} from "./app/shared/ui-modules/animal/animal.module.spec";
 
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
@@ -13,6 +14,10 @@ declare const require: {
     <T>(id: string): T;
   };
 };
+
+describe('modules', () => {
+  describe('animalModuleTest', animalModuleTest);
+});
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
