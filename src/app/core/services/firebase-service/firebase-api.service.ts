@@ -6,14 +6,14 @@ import {AngularFirestore} from "@angular/fire/firestore";
 @Injectable({
   providedIn: 'root'
 })
-export class FirebaseService {
+export class FirebaseApiService {
   constructor(
     private http: HttpClient,
-    private firestore: AngularFirestore,
+    private angularFirestore: AngularFirestore,
     ) {
   }
 
   public getAnimalsList(): Observable<any> {
-    return this.firestore.collection("animals").get();
+    return this.angularFirestore.collection("animals").get();
   }
 }
