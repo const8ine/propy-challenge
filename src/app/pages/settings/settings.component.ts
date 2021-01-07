@@ -6,8 +6,8 @@ import {
 } from '@angular/core';
 import {Subject} from 'rxjs';
 import {AnimalInterface} from "../../core/models/animal.interface";
-import {MockService} from "../../core/services/mock-service/mock.service";
-import {FirebaseService} from "../../core/services/firebase-service/firebase.service";
+import {MockApiService} from "../../core/services/mock-service/mock-api.service";
+import {FirebaseApiService} from "../../core/services/firebase-service/firebase-api.service";
 import {SettingsService} from "../../core/services/settings-service/settings.service";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 
@@ -29,8 +29,8 @@ export class SettingsComponent implements OnInit, OnDestroy {
   private ngUnsubscribe = new Subject();
 
   constructor(
-    private readonly mockService: MockService,
-    private firebaseService: FirebaseService,
+    private readonly mockService: MockApiService,
+    private firebaseService: FirebaseApiService,
     private readonly cdRef: ChangeDetectorRef,
     private settingsService: SettingsService,
     private formBuilder: FormBuilder,
@@ -51,7 +51,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
   private httpGetMockAnimalsList(): void {
     this.mockService.getMockAnimalsList().subscribe((animals) => {
       this.animalsList = animals;
-      console.log('Settings mock: ', this.animalsList);
       this.initForm();
       this.cdRef.markForCheck();
     }, error => this.isNoItemsError = true);
@@ -62,7 +61,6 @@ export class SettingsComponent implements OnInit, OnDestroy {
       animals.docs.forEach((doc) => {
         this.animalsList.push(doc.data());
       });
-      console.log('Settings Firebase response: ', this.animalsList);
       this.initForm();
       this.cdRef.markForCheck();
     }, error => this.isNoItemsError = true);
