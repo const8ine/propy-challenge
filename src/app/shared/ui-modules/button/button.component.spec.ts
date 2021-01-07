@@ -1,7 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
 import { ButtonComponent } from './button.component';
-import {isNgContent} from "@angular/compiler";
 
 describe('ButtonComponent', () => {
   let component: ButtonComponent;
@@ -24,7 +22,7 @@ describe('ButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should create a button with text content inside, when type is "regular" and a button with a content wrapper, when type is "icon"', async(() => {
+  it('should create a button with text content inside, when type is "regular"', async(() => {
     component.buttonType = 'regular';
     component.text = "Example text";
     fixture.detectChanges();
@@ -35,6 +33,14 @@ describe('ButtonComponent', () => {
 
     component.buttonType = 'icon';
     fixture.detectChanges();
+    !expect(compiled.querySelector('.button__icon-container')).toBeNull();
+  }));
+
+  it('should create a button with a content wrapper, when type is "icon"', async(() => {
+    component.buttonType = 'icon';
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+
     !expect(compiled.querySelector('.button__icon-container')).toBeNull();
   }));
 });
