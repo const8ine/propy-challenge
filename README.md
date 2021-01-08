@@ -8,10 +8,18 @@
 Run `npm run start` for a dev server. 
 Navigate to `http://localhost:4200/`. 
 
+---
+
+## Environments
+`src/environments` configuration files have the same set both for development and production stands.
+`firebaseConfig` — configuration for FireBase.
+`mockJsonUrl` — path to JSON file for mocking response from the server for app testing.
+
 ## Build and deployment
 
 Deployment is set up with GitHub Actions and Firebase CLI.
-Firebase account is authorized using a token with `workflow` permissions.
+Firebase account is authorized on GitHub using a token with `workflow` permissions.
+An app authenticates in FireBase using a token specified in `src/environments` configuration files.
 Deployment configuration: `firebase.json`.
 Build task: `npm run build`.
 The build artifacts will be stored in the `dist/propychallenge` directory.
@@ -22,7 +30,18 @@ Make a pull request and merge your branch into `main` branch.
 
 ## Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-Unit tests run one by one. Module unit tests with nested `describe blocks` and imports are added manually to the `src/test.ts` fie.
+Unit tests run one by one. Module unit tests with nested `describe` blocks and imports are added manually to the `src/test.ts` fie.
+
+---
+
+## Notes
+
+In `SettingsComponent` I tried to use my experience with PrimeNG.
+
+Other components are made without dependency. I implemented my own UI components in a very simple way just to show how I would do this in a project like this.
+
+`IconComponent` was meant to use only SVG sprites. Then I didn't find any proper SVGs for animals, so I implemented a feature for loading a static image.
+I didn't remove SVG sprite, and used it in one place, because I was sorry to remove this functionality.
 
 ---
 
@@ -69,7 +88,7 @@ For example, the user can choose to have 3 animals: cat, dog, peacock and then t
 ```
 
 ### Task 3
-Provide some documentation. For example - Readme.md. 
+Provide some documentation. For example — README.md. 
 
 ### Task 4
 Deploy the app, so it’s available online.
