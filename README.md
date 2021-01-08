@@ -1,19 +1,47 @@
 # Propy challenge
-## Old MacDonald Had a Farm 🐄 🐐 🐈 🤖
+
+## Deployed app
+[https://propy-challenge.web.app/](https://propy-challenge.web.app/)
+
+## Development server
+
+Run `npm run start` for a dev server. 
+Navigate to `http://localhost:4200/`. 
+
+## Build and deployment
+
+Deployment is set up with GitHub Actions and Firebase CLI.
+Firebase account is authorized using a token with `workflow` permissions.
+Deployment configuration: `firebase.json`.
+Build task: `npm run build`.
+The build artifacts will be stored in the `dist/propychallenge` directory.
+
+### How to deploy an app
+Building and deployment automatically trigger on merge to master branch (`main`).
+Make a pull request and merge your branch into `main` branch.
+
+## Running unit tests
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Unit tests run one by one. Module unit tests with nested `describe blocks` and imports are added manually to the `src/test.ts` fie.
+
+---
+
+## Test assignment
 
 ### Checklist
-- [-] Task 1
-  - [ ] Unit testing
-- [-] Task 2
-  - [-] Routing
-- [ ] Task 3
-- [ ] Task 4
+- [x] Task 1
+  - [x] Unit testing
+- [x] Task 2
+  - [x] Routing
+- [x] Task 3
+- [x] Task 4
 
 ### Task 1
 Write an app/SPA(single page application) to show 5 verses of the nursery rhyme “Old MacDonald Had a Farm” with 5 animals of your choosing. 
 Angular would be preferable, and any framework you are comfortable with is acceptable. 
 The verse is repeated for each animal and the appropriate sound for the animal is used e.g. cows go “moo”, ducks go “quack” etc. 
 
+**Old MacDonald Had a Farm 🐄 🐐 🐈 🤖**
 ```
 Old MACDONALD had a farm
 E-I-E-I-O
@@ -44,31 +72,5 @@ For example, the user can choose to have 3 animals: cat, dog, peacock and then t
 Provide some documentation. For example - Readme.md. 
 
 ### Task 4
-Deploy the app so it’s available online.
+Deploy the app, so it’s available online.
 
----
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-[http://localhost:9876/](http://localhost:9876/)
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
