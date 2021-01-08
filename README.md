@@ -29,8 +29,14 @@ Building and deployment automatically trigger on merge to master branch (`main`)
 Make a pull request and merge your branch into `main` branch.
 
 ## Running unit tests
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+`npm run test`
+
+### Notes
 Unit tests run one by one. Module unit tests with nested `describe` blocks and imports are added manually to the `src/test.ts` fie.
+
+**UPDATE:**
+
+Added tests for Angular services.
 
 ---
 
