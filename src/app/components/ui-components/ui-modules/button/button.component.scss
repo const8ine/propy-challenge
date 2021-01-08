@@ -1,0 +1,23 @@
+@import "../../../../../assets/sass/dependecies";
+@import "styles/base";
+@import "styles/regular-button";
+@import "styles/icon-button";
+
+:host {
+  display: inline-block;
+  position: relative;
+  pointer-events: none;
+}
+
+.button {
+  @include button-base-styles;
+
+  &--regular {
+    @include regular-button;
+  }
+
+  &--icon {
+    @include icon-button;
+  }
+}
+

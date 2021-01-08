@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { RouterModule } from "@angular/router";
+import { RouterModule } from '@angular/router';
 import { APP_ROUTES } from './app-routing';
-import {HttpClientModule} from "@angular/common/http";
-import {FirebaseModule} from "./shared/firebase/firebase.module";
-import {HeaderModule} from "./header/header.module";
+import {HttpClientModule} from '@angular/common/http';
+import {FirebaseModule} from './core/modules/firebase.module';
+import {HeaderModule} from './components/ui-components/header/header.module';
 
 @NgModule({
   declarations: [

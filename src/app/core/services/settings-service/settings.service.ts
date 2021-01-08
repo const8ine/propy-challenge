@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {AnimalInterface} from "../../models/animal.interface";
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { AnimalInterface } from "../../models/animal.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ export class SettingsService {
     {name: "cat", sound: "meow"},
     {name: "goose", sound: "honk"}
   ];
+
   constructor() {
   }
 

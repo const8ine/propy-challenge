@@ -6,7 +6,7 @@ import {
   BrowserDynamicTestingModule,
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
-import {animalModuleTest} from "./app/shared/ui-modules/animal/animal.module.spec";
+import { animalModuleTest } from "./app/components/ui-components/ui-modules/animal/animal.module.spec";
 
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {

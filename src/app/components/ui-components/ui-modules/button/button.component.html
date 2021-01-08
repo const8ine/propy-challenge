@@ -1,0 +1,19 @@
+<button
+  *ngIf="btnType === BUTTON_TYPES.regularButton"
+  class="button button--regular"
+  [type]="nativeType"
+  [disabled]="isDisabled">
+  {{ btnText }}
+</button>
+
+<button
+  *ngIf="btnType === BUTTON_TYPES.iconButton"
+  class="button button--icon"
+  [type]="nativeType"
+  [disabled]="isDisabled">
+    <span class="button__icon-container">
+      <ng-content></ng-content>
+    </span>
+</button>
+
+
