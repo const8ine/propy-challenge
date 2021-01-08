@@ -1,35 +1,34 @@
-import {FirebaseApiService} from "./firebase-api.service";
-import {environment} from "../../../../environments/environment";
-import {AnimalInterface} from "../../models/animal.interface";
+import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FirebaseApiService } from "./firebase-api.service";
+import { AngularFirestore } from '@angular/fire/firestore';
 
-describe('FirebaseApiService', () => {
-  let httpClientSpy: { get: jasmine.Spy };
+
+describe('firebaseApiServiceTest', () => {
   let angularFirestoreSpy: { get: jasmine.Spy };
-  let firebaseApiService: FirebaseApiService;
-  let mockJsonUrl: AnimalInterface[];
-  let animalsList: AnimalInterface[] = [];
 
   beforeEach(async () => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
     angularFirestoreSpy = jasmine.createSpyObj('AngularFirestore', ['collection'], ['"animals"']);
-    mockJsonUrl = httpClientSpy.get(environment.mockUrl);
 
-    firebaseApiService = new FirebaseApiService(
-      httpClientSpy as any,
-      angularFirestoreSpy as any,
-    );
+    await TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ],
+      providers: [
+        {provide: AngularFirestore, useValue: angularFirestoreSpy},
+        FirebaseApiService,
+      ]
+    });
   });
 
-  it('getAnimalsList method should return value from observable',
-    (done: DoneFn) => {
-      firebaseApiService.getAnimalsList().subscribe((animals) => {
-        animals.docs.forEach((doc) => {
-          animalsList.push(doc.data());
-        });
-      });
+  it('should be created', () => {
+    const service: FirebaseApiService = TestBed.get(FirebaseApiService);
+    expect(service).toBeTruthy();
+  });
 
-      expect(animalsList).toBe(mockJsonUrl);
-      done();
-    });
+  it('should have getData function', () => {
+    const service: FirebaseApiService = TestBed.get(FirebaseApiService);
+    expect(service.getAnimalsList).toBeTruthy();
+  });
+
 });
-

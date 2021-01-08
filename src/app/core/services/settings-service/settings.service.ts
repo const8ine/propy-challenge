@@ -7,6 +7,7 @@ import { AnimalInterface } from "../../models/animal.interface";
 })
 export class SettingsService {
   private settingsList: AnimalInterface[] = [
+    // TODO: replace this mock of initial settings with http request
     {name: "goat", sound: "baa"},
     {name: "cat", sound: "meow"},
     {name: "goose", sound: "honk"}

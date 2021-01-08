@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  mockUrl: "assets/data/animals.mock.json",
+  mockJsonUrl: "assets/data/animals.mock.json",
   firebaseConfig: {
     apiKey: "AIzaSyDtjkGSWJHfdKQPCtbg3QApQUntkQUtJ_o",
     authDomain: "propy-challenge.firebaseapp.com",

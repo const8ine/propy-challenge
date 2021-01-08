@@ -11,6 +11,6 @@ export class MockApiService {
   }
 
   public getMockAnimalsList(): Observable<any> {
-    return this.http.get(environment.mockUrl);
+    return this.http.get(environment.mockJsonUrl);
   }
 }
